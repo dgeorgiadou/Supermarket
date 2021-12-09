@@ -1,0 +1,63 @@
+﻿@model List<Supermarket.DataService.KPI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>KPI Index</h2>
+
+@if (ViewBag.SaveMessage != null)
+{
+    <h2>@ViewBag.SaveMessage </h2>
+
+}
+
+
+<p>
+    <a href="~/KPI/Create">Add a new KPI</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Upthreshold
+            </th>
+            <th>
+                Dowmthreshold
+            </th>
+            <th>
+                Goal
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Upthreshold)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dowmthreshold)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Goal)
+                </td>
+
+                @*  <td>
+                        <a asp-page="./GetBook" asp-route-id="@item.BookId">Get Book</a> |
+                        <a asp-page="./Edit" asp-route-id="@item.BookId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.BookId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.BookId">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
